@@ -1,1 +1,1 @@
-# Terraform Template to create sqs fifo and standard configuration
+# Terraform Template to create sqs fifo configuration
