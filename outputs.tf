@@ -17,3 +17,7 @@ output "sqs_queue_tags_all" {
   description = "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block."
   value       = aws_sqs_queue.main.tags_all
 }
+
+output "deadletter_queue_url" {
+  value = aws_sqs_queue.deadletter_queue.id
+}

@@ -1,7 +1,7 @@
 variable "name" {
   description = "This is the human-readable name of the queue. If omitted, Terraform will assign a random name."
   type        = string
-  default     = "navi-test.fifo"
+  default     = ""
 }
 
 variable "name_prefix" {
@@ -49,7 +49,13 @@ variable "receive_wait_time_seconds" {
 variable "redrive_policy" {
   description = "The JSON policy to set up the Dead Letter Queue, see AWS docs. Note: when specifying maxReceiveCount, you must specify it as an integer (5), and not a string (\"5\")"
   type        = string
-  default     = null
+  default     = ""
+}
+
+variable "receive_count" {
+  description = "The number of times that a message can be retrieved before being moved to the dead-letter queue"
+  type        = number
+  default     = 3
 }
 
 variable "fifo_queue" {
@@ -73,7 +79,7 @@ variable "deduplication_scope" {
 variable "content_based_deduplication" {
   description = "Enables content-based deduplication for FIFO queues"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "kms_master_key_id" {
@@ -92,7 +98,7 @@ variable "tags" {
   description = "A mapping of tags to assign to all resources"
   type        = map(string)
   default = {
-    Name = "Suresh Kumar"
-    ENV  = "DEV"
+    Name = ""
+    ENV  = ""
   }
 }
